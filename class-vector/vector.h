@@ -7,18 +7,20 @@ class vector
 public:
     vector(double x, double y, double z);
     vector();
-    vector operator+(vector vect);
-    vector operator-(vector vect);
-    double operator*(vector vect);
-    vector vect_mult(vector vect1, vect2);
-    vector operator*(double a);
-    vector operator/(double a);
-    double abs(vector _vect);
+    friend vector operator+(vector vect1, vector vect2);
+    friend vector operator-(vector vect1, vector vect2);
+    friend double operator*(vector vect1, vector vect2);
+    friend vector vect_mult(vector vect1, vector vect2);
+    friend vector operator*(vector vect1, double a);
+    friend vector operator/(vector vect1, double a);
+    friend double abs(vector vect1);
     double abs();
     double get_x();
     double get_y();
     double get_z();
+    friend ostream & vect_print (ostream & outs, vector vect1);
     ~vector();
 };
+
 
 #endif // VECTOR_H

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector::vector(int x, int y, int z) {
+vector::vector(double x, double y, double z) {
     _x = x;
     _y = y;
     _z = z;
@@ -16,36 +16,36 @@ vector::vector() {
     _z = 0;
 }
 
-vector vector::operator+(vector vect) {
-    return vector(_x + vect._x, _y + vect._y, _z + vect._z);
+vector operator+(vector vect1, vector vect2) {
+    return vector(vect1._x + vect2._x, vect1._y + vect2._y, vect1._z + vect2._z);
 }
 
-vector vector::operator-(vector vect) {
-    return vector(_x - vect._x, _y - vect._y, _z - vect._z);
+vector operator-(vector vect1, vector vect2) {
+    return vector(vect1._x - vect2._x, vect1._y - vect2._y, vect1._z - vect2._z);
 }
 
-double vector::operator*(vector vect) {
-    return (_x * vect._x + _y * vect._y + _z * vect._z);
+double operator*(vector vect1, vector vect2) {
+    return (vect1._x * vect2._x + vect1._y * vect2._y + vect1._z * vect2._z);
 }
 
-vector vector::vect_mult(vector vect1, vect2) {
-    return vector(vect1_y * vect2._z - vect1_z * vect2._y, vect1_z * vect2._x - vect1_x * vect2._z, vect1_x * vect2._y - vect1_y * vect2._x);
+vector vect_mult(vector vect1, vector vect2) {
+    return vector(vect1._y * vect2._z - vect1._z * vect2._y, vect1._z * vect2._x - vect1._x * vect2._z, vect1._x * vect2._y - vect1._y * vect2._x);
 }
 
-vector vector::operator*(double a) {
-    return vector(_x * a, _y * a, _z * a);
+vector operator*(vector vect1, double a) {
+    return vector(vect1._x * a, vect1._y * a, vect1._z * a);
 }
 
-vector vector::operator/(double a) {
-    return vector(_x / a, _y / a, _z / a);
+vector operator/(vector vect1, double a) {
+    return vector(vect1._x / a, vect1._y / a, vect1._z / a);
 }
 
 double vector::abs() {
-    return sqrt(_x * _x + _y * _y + _Z * _z);
+    return sqrt(_x * _x + _y * _y + _z * _z);
 }
 
-double vector::abs(vector vect) {
-    return sqrt(vect._x * vect._x + vect._y * vect._y + vect._z * vect._z);
+double abs(vector vect1) {
+    return sqrt(vect1._x * vect1._x + vect1._y * vect1._y + vect1._z * vect1._z);
 }
 
 double vector::get_x() {
@@ -53,11 +53,15 @@ double vector::get_x() {
 }
 
 double vector::get_y() {
-    reutrn _y;
+    return _y;
 }
 
 double vector::get_z() {
     return _z;
 }
 
-~vector() {}
+friend ostream & vect_print (ostream & outs, vector vect1) {
+	outs << "x = " << vect1._x << "; y = " << vect1._y << "; z = " << vect1._z << endl;
+}
+
+vector::~vector() {}
