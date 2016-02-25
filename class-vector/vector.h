@@ -10,7 +10,7 @@ public:
     vector operator+(vector vect);
     vector operator-(vector vect);
     double operator*(vector vect);
-    vector operator**(vector vect);
+    vector vect_mult(vector vect1, vect2);
     vector operator*(double a);
     vector operator/(double a);
     double abs(vector _vect);
