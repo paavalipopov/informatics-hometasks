@@ -2,24 +2,25 @@
 #define VECTOR_H
 
 
-class vector
+class Vector
 {   double _x, _y, _z;
 public:
-    vector(double x, double y, double z);
-    vector();
-    friend vector operator+(vector vect1, vector vect2);
-    friend vector operator-(vector vect1, vector vect2);
-    friend double operator*(vector vect1, vector vect2);
-    friend vector vect_mult(vector vect1, vector vect2);
-    friend vector operator*(vector vect1, double a);
-    friend vector operator/(vector vect1, double a);
-    friend double abs(vector vect1);
-    double abs();
-    double get_x();
-    double get_y();
-    double get_z();
-    friend ostream & vect_print (ostream & outs, vector vect1);
-    ~vector();
+	Vector(double x, double y, double z);
+	Vector();
+	friend Vector operator+(Vector vect1, Vector vect2);
+	friend Vector operator-(Vector vect1, Vector vect2);
+	friend double operator*(Vector vect1, Vector vect2);
+	friend Vector vect_mult(Vector vect1, Vector vect2);
+	friend Vector operator*(Vector vect1, double a);
+	friend Vector operator*(double a, Vector vect1);
+	friend Vector operator/(Vector vect1, double a);
+	friend double abs(Vector vect1);
+	double abs();
+	double get_x();
+	double get_y();
+	double get_z();
+	friend ostream & vector_print (ostream & outs, Vector vect1);
+	~Vector();
 };
 
 
